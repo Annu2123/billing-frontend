@@ -11,7 +11,7 @@ function App() {
   },[dispatch])
   return (
     <div className="App">
-     <h1>listing Product- {products.data.length}</h1>
+     <h1>listing of  Products- {products.data.length}</h1>
     </div>
   );
 }
