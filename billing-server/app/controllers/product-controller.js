@@ -22,4 +22,23 @@ productCntrl.list=async(req,res)=>{
         res.status(500).json({error:"intrnal seerver error"})
     }
 }
+productCntrl.update=async(req,res)=>{
+    const id=req.params.id
+    const body=req.body
+    try{
+        const product=await Product.findByIdAndUpdate(id,body,{new:true})
+        res.status(201).json(product)
+    }catch(err){
+        res.status(500).json({error:"internal server error"})
+    }
+}
+    productCntrl.remove=async(req,res)=>{
+       const id=req.params.id
+       try{
+        const product=await Product.findByIdAndDelete(id,{new:true})
+        res.status(200).json(product)
+       }catch(err){
+        res.status(500).json({error:"internal server error"})
+       }
+    }
 module.exports=productCntrl

@@ -13,6 +13,8 @@ const productCntrl=require('./app/controllers/product-controller')
 const productValidationSchema=require('./app/validations/product-validation') 
 app.post('/api/products',checkSchema(productValidationSchema),productCntrl.create)
 app.get('/api/products',productCntrl.list)
+app.delete('/api/products/:id',productCntrl.remove)
+app.put('/api/products/:id', productCntrl.update)
 app.listen(port,()=>{
     console.log("server is running in port " + port)
 })
