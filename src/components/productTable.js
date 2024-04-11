@@ -1,5 +1,6 @@
 import {useDispatch} from 'react-redux'
 import { useState } from 'react';
+import {useSelector} from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { startRemoveProduct } from '../actions/productActions'
 import Addproduct from './addProduct';
@@ -16,6 +17,9 @@ export default function ProductTable(props){
             dispatch(startRemoveProduct(id))
         }
     }
+    const lineItems=useSelector((state)=>{
+        return state.invoice.data.find
+    })
     return (
         <>
         <h1>total Product{products.data.length}</h1>
