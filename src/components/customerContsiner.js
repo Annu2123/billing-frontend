@@ -11,6 +11,7 @@ export default function CustomerContainer(){
                  <CustomerTable customer={customer} />
             </div>
             <div className='col-md-4'>
+                <h2>Add customer</h2>
                <CustomerForm/>
             </div>
         </div>

@@ -17,6 +17,10 @@ export default function ProductTable(props){
             dispatch(startRemoveProduct(id))
         }
     }
+    const handleEdit = (id) => {
+        setEditId(id)
+        toggle()
+    }
     const lineItems=useSelector((state)=>{
         return state.invoice.data.find
     })
@@ -30,6 +34,7 @@ export default function ProductTable(props){
                 <th>price</th>
                 <th>Description</th>
                 <th>stock level</th>
+                <th>Reorder Level</th>
                 <th>Action</th>
             </tr>
          </thead>
@@ -40,6 +45,7 @@ export default function ProductTable(props){
                     <td>{ele.price}</td>
                     <td>{ele.description}</td>
                     <td>{ele.stockLevel}</td>
+                    <td>{ ele.reorderLevel }</td>
                     <td><button>show</button> 
                     <button onClick={()=>{setEditId(ele._id)
                                          toggle()}}>edit</button>
