@@ -7,6 +7,9 @@ const initialState={
         case "SET_INVOICE":{
             return {...state,data:action.payload}
         }
+        case 'ADD_INVOICE' : {
+            return {...state, data: [...state.data, action.payload ]}
+        }
         default :{
             return state
         }

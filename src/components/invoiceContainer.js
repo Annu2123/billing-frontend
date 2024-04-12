@@ -43,7 +43,8 @@ export default function InvoiceContainer(){
                             <td>{ele.taxes}</td>
                             <td>{ele.netTotal}</td>
                             <td>{ele.outstandingBalance}</td>
-                            <td><button>more</button> <button>pay</button></td>
+                            <td><button>more</button> 
+                            <button>pay</button></td>
                         </tr>
                     })
                 }

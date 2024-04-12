@@ -47,17 +47,64 @@ export default function CustomerForm(props){
     }
     return (
         <>
-            <h1>add form</h1>
-            <form onSubmit={handleSubmit}>
-                <label>enter name</label>
+        { customers.serverErrors.length > 0 && (
+            <div>
+                <h2>Server Errors</h2>
+                <ul>
+                    { customers.serverErrors.map((ele, i) => {
+                        return <li key={i}> {ele.msg} </li>
+                    })}
+                </ul>
+            </div>
+        )}
 
-                <input type='text'name='name' value={form.name} onChange={handleChange}/><br/>
-                <label>contact</label>
+        <form onSubmit={handleSubmit}>
+            { /* create the form */ }
+            <div className="form-group">
+                <label 
+                    htmlFor="name" 
+                    className="form-label"
+                >Name</label>
+                <input 
+                    type="text" 
+                    value={form.name} 
+                    onChange={handleChange} 
+                    name="name" 
+                    id="name" 
+                    className='form-control'
+                /> 
+            </div>
 
-                <input type='text'name='email' value={form.email} onChange={handleChange}/>
-                <input type='text'name='mobile' value={form.mobile} onChange={handleChange}/><br/>
-                <input  type='submit'/>
-            </form>
-        </>
+            <div className="form-group">
+                <label 
+                    htmlFor="Email" 
+                    className="form-label"
+                >Email</label>
+                <input 
+                    type="text" 
+                    value={form.email} 
+                    onChange={handleChange} 
+                    name="email" 
+                    id="email" 
+                    className='form-control'
+                /> 
+            </div>
+            <div className="form-group">
+                <label 
+                    htmlFor="mobile" 
+                    className="form-label"
+                >Mobile</label>
+                <input 
+                    type="text" 
+                    value={form.mobile} 
+                    onChange={handleChange} 
+                    name="mobile" 
+                    id="mobile" 
+                    className='form-control'
+                /> 
+            </div>
+            <input type="submit" /> 
+        </form>
+    </>
     )
 }

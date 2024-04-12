@@ -10,10 +10,29 @@ export const startGetInvoice=()=>{
            console.log(err)
         }
     }
+
 } 
+
+export const startCreateInvoice = (formData, redirect) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post('http://localhost:3050/api/invoices', formData)
+            dispatch(addInvoice(response.data))
+            redirect()
+        } catch(err) {
+            alert(err)
+        }
+    }
+}
 
 const setInvoice=(data)=>{
     return {
         type:"SET_INVOICE",payload:data
+    }
+}
+const addInvoice = (invoice) => {
+    return { 
+        type: 'ADD_INVOICE',
+        payload: invoice
     }
 }
